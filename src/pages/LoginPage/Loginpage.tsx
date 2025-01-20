@@ -24,13 +24,8 @@ const loginFormSchema = yup.object({
     .min(8, "Минимум 8 символов"),
 });
 
-const user = {
-  email: "valiev@gmail.com",
-  password: "12345678",
-};
-
 export const Loginpage = () => {
-  const navigate = useNavigate(); // Переносим сюда
+  const navigate = useNavigate();
 
   const {
     control,
@@ -42,10 +37,19 @@ export const Loginpage = () => {
   });
 
   const onSubmit: SubmitHandler<ILoginForm> = (data) => {
-    // Проверка данных
-    if (data.useremail === user.email && data.userpassword === user.password) {
+    
+    const users = JSON.parse(localStorage.getItem("users") || "[]");
+
+    
+    const foundUser = users.find(
+      (user: { email: string; password: string; id: string }) =>
+        user.email === data.useremail && user.password === data.userpassword
+    );
+
+    if (foundUser) {
+      localStorage.setItem("currentUserId", foundUser.id);
       console.log("Успешный вход");
-      navigate("/main"); // Редирект на страницу /main
+      navigate("/main"); 
     } else {
       console.log("Неверный логин или пароль");
     }
@@ -89,3 +93,4 @@ export const Loginpage = () => {
     </div>
   );
 };
+

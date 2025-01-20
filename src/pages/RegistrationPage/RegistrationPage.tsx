@@ -6,16 +6,20 @@ interface User {
   name: string;
   email: string;
   password: string;
+  city: string;
+  phone_number: string
 }
 
 export const RegisterPage: React.FC = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [city, setCity] = useState("");
+  const [phone_number, setPhone_number]= useState("");
   const navigate = useNavigate();
 
   const handleRegister = () => {
-    if (!name || !email || !password) {
+    if (!name || !email || !password || !city || !phone_number) {
       alert("Заполните все поля!");
       return;
     }
@@ -26,6 +30,8 @@ export const RegisterPage: React.FC = () => {
       name,
       email,
       password,
+      city,
+      phone_number
     };
 
     
@@ -51,10 +57,24 @@ export const RegisterPage: React.FC = () => {
         style={{ display: "block", width: "100%", margin: "10px 0", padding: "10px" }}
       />
       <input
+        type="text"
+        placeholder="Город"
+        value={city}
+        onChange={(e) => setCity(e.target.value)}
+        style={{ display: "block", width: "100%", margin: "10px 0", padding: "10px" }}
+      />
+      <input
         type="email"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        style={{ display: "block", width: "100%", margin: "10px 0", padding: "10px" }}
+      />
+      <input
+        type="text"
+        placeholder="Номер телефона"
+        value={phone_number}
+        onChange={(e) => setPhone_number(e.target.value)}
         style={{ display: "block", width: "100%", margin: "10px 0", padding: "10px" }}
       />
       <input
