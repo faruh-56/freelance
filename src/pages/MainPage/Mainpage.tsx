@@ -1,6 +1,6 @@
 
 
-export const Mainpage = () => {
+export const MainPage = () => {
   return (
     <div>Mainpage</div>
   )

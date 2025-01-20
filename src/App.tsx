@@ -1,11 +1,11 @@
 import './App.css'
-import { Loginpage } from './pages/LoginPage/Loginpage';
+import { LoginPage } from "./pages/LoginPage/LoginPage.tsx";
 
 function App() {
   return (
     <div className="App">
       <div className="container">
-        <Loginpage />
+        <LoginPage />
       </div>
     </div>
   );

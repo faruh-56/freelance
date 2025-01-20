@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 // import { Provider } from 'react-redux'
-import { Loginpage } from './pages/LoginPage/Loginpage.tsx'
-import { Mainpage } from './pages/MainPage/Mainpage.tsx'
+import { LoginPage } from './pages/LoginPage/LoginPage.tsx'
 import { RegisterPage } from './pages/RegistrationPage/RegistrationPage.tsx'
+import { MainPage } from './pages/MainPage/MainPage.tsx'
+
 // import { store } from './store/store.ts'
 
 const routerConfig = createBrowserRouter([
@@ -15,11 +16,11 @@ const routerConfig = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Loginpage />,
+    element: <LoginPage />,
   },
   {
     path: "/main",
-    element: <Mainpage />,
+    element: <MainPage />,
   },
   // {
   //   path: "/profile",

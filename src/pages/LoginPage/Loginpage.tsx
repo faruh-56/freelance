@@ -24,7 +24,7 @@ const loginFormSchema = yup.object({
     .min(8, "Минимум 8 символов"),
 });
 
-export const Loginpage = () => {
+export const LoginPage = () => {
   const navigate = useNavigate();
 
   const {
