@@ -14,39 +14,66 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
-}
 
-.Logincontainer {
-  padding: 20px;
-  border-radius: 8px;
-  width: 100%;
-  text-align: center;
-}
+  .Logincontainer {
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
 
-h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  font-weight: bold;
-  color: black;
-}
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: black;
+    }
 
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+      input {
+        width: 100%;
+        padding: 5px 0;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        font-size: 14px;
+        outline: none;
+        color: #333;
+        background-color: white;
 
-input {
-  width: 100%;
-  padding: 5px 0;
-  border: none;
-  border-bottom: 1px solid #ccc;
-  font-size: 14px;
-  outline: none;
-  color: #333;
-  background-color: white;
-  
+        &:focus {
+          border-bottom: 1px solid green;
+        }
+      }
+
+      button {
+        background-color: green;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+
+        &:hover {
+          background-color: darkgreen;
+        }
+      }
+    }
+
+    .register-link {
+      font-size: 14px;
+      color: blue;
+      text-decoration: none;
+      margin-top: 10px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 a {
@@ -58,21 +85,4 @@ a {
   &:hover {
     text-decoration: underline;
   }
-}
-
-button {
-  background-color: green;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.register-link {
-  font-size: 14px;
-  color: blue;
-  text-decoration: none;
-  margin-top: 10px;
 }
