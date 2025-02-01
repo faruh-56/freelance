@@ -31,8 +31,7 @@ const routerConfig = createBrowserRouter([
   },
   {
     path: "/profile",
-    element: <ProfilePage 
-    name='Фаррух Валиев' location='Узбекстан, Ташкент' rating={5} secureDeals={0} reviews={{ positive: 0, negative: 0 }}/>,
+    element: <ProfilePage />,
   },
   {
     path: "/registration",
