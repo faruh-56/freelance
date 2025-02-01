@@ -7,6 +7,9 @@ import { RegisterPage } from './pages/RegistrationPage/RegistrationPage.tsx'
 import { MainPage } from './pages/MainPage/MainPage.tsx'
 import { Provider } from 'react-redux'
 import { store } from './store/store.ts'
+import { CardsPage } from './pages/CardsPage/CardsPage.tsx'
+import { ProfilePage } from './pages/ProfilePage/ProfilePage.tsx'
+import { FavouriteCards } from './pages/FavouritesPage/FavouritesPage.tsx'
 
 
 const routerConfig = createBrowserRouter([
@@ -22,13 +25,22 @@ const routerConfig = createBrowserRouter([
     path: "/main",
     element: <MainPage />,
   },
-  // {
-  //   path: "/profile",
-  //   element: <ProfilePage />,
-  // },
+  {
+    path: "/card/:id",
+    element: <CardsPage />
+  },
+  {
+    path: "/profile",
+    element: <ProfilePage 
+    name='Фаррух Валиев' location='Узбекстан, Ташкент' rating={5} secureDeals={0} reviews={{ positive: 0, negative: 0 }}/>,
+  },
   {
     path: "/registration",
     element: <RegisterPage />,
+  },
+  {
+    path: "/favourites",
+    element: <FavouriteCards />
   }
 ]);
 

@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(67, 212, 67);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 10px 20px;
+    box-sizing: border-box; /* Учитывать отступы в ширине */
+    display: flex;
+    justify-content: space-between; /* Распределить элементы */
+    align-items: center; /* Центрирование элементов по вертикали */
+    height: 50px;
+}
+  
+  
+  .RegisterPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px; /* Отступ для Navbar */
+  }
+  
+  .RegisterContainer {
+    padding: 30px;
+    border-radius: 12px;
+    width: 350px;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .RegisterContainer h1 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .RegisterContainer input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    color: #333;
+    background-color: white;
+    margin-bottom: 15px;
+    transition: border-color 0.2s ease;
+  }
+  
+  .RegisterContainer input:focus {
+    border-color: green;
+  }
+  
+  .RegisterContainer button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .RegisterContainer button:hover {
+    background-color: darkgreen;
+  }
+  

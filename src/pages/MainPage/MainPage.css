@@ -1,22 +1,93 @@
+/* General Styling */
+body {
+    height: 4000px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(67, 212, 67);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 10px 20px;
+    box-sizing: border-box; /* Учитывать отступы в ширине */
+    display: flex;
+    justify-content: space-between; /* Распределить элементы */
+    align-items: center; /* Центрирование элементов по вертикали */
+    height: 50px;
+}
+
+/* Job Card Styling */
 .job-card {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 16px;
-    margin-bottom: 16px;
+    margin: 16px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: #fff;
+    transition: box-shadow 0.3s ease;
+}
+
+.job-card:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
 .job-card h2 {
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
     margin: 0 0 8px;
+    line-height: 1.4;
 }
 
 .job-card p {
     margin: 0 0 8px;
     color: #555;
+    font-size: 14px;
+    line-height: 1.6;
 }
 
 .job-card p:last-child {
     margin: 0;
 }
+
+.job-card strong {
+    color: #333;
+}
+
+.job-card a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.job-card a:hover {
+    text-decoration: underline;
+}
+
+/* Additional Styling for Spacing */
+.container {
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.favorite-button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #ff7f00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .favorite-button:hover {
+    background-color: #e67000;
+  }
+  

@@ -1,5 +1,5 @@
 interface Job {
-    id: number;
+    id: string;
     name: string;
     company: { name: string };
     locations: { name: string }[];

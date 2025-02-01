@@ -1,0 +1,42 @@
+body {
+    height: 1000px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(67, 212, 67);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 10px 20px;
+    box-sizing: border-box; /* Учитывать отступы в ширине */
+    display: flex;
+    justify-content: space-between; /* Распределить элементы */
+    align-items: center; /* Центрирование элементов по вертикали */
+    height: 50px;
+}
+.jobCard {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.jobTitle {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.jobInfo {
+    margin: 8px 0;
+    color: #555;
+}
+
+.jobInfo strong {
+    font-weight: bold;
+}

@@ -1,8 +1,7 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { baseUrl } from '../../utils/baseUrl'
-import { JobsResponse } from './types'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { baseUrl } from '../../utils/baseUrl';
+import { JobsResponse } from './types';
 
- 
 export const JobsApi = createApi({
     reducerPath: 'JobsApi',
     baseQuery: fetchBaseQuery({ baseUrl }),
@@ -10,7 +9,10 @@ export const JobsApi = createApi({
         getJobs: builder.query<JobsResponse, { page?: number }>({
             query: ({ page = 1 }) => `/jobs?page=${page}`,
         }),
+        getJobDetails: builder.query<any, string>({
+            query: (id) => `/jobs/${id}`,
+        }),
     }),
-})
+});
 
-export const { useGetJobsQuery } = JobsApi
+export const { useGetJobsQuery, useGetJobDetailsQuery } = JobsApi;

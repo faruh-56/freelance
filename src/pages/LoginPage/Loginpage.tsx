@@ -5,8 +5,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Input } from "../../components/UI/Input/Input";
 import { Heading } from "../../components/Heading/Heading";
 import { Button } from "../../components/UI/Button/Button";
-import { AppLink } from "../../components/AppLink/AppLink";
 import { useNavigate } from "react-router-dom";
+import { Navbar } from "../../components/Navbar/Navbar";
+import { AuthWith } from "../../components/AuthWith/AuthWith";
 
 interface ILoginForm {
   useremail: string;
@@ -57,6 +58,7 @@ export const LoginPage = () => {
 
   return (
     <div className="Loginpage">
+      <Navbar />
       <div className="Logincontainer">
         <Heading type="h1" text="Вход" />
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -88,7 +90,7 @@ export const LoginPage = () => {
           />
           <Button type="submit" text="Войти" />
         </form>
-        <AppLink text="Забыли пароль?" href="#" />
+        <AuthWith />
       </div>
     </div>
   );
