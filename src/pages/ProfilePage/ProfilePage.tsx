@@ -106,7 +106,7 @@ export const ProfilePage: React.FC = () => {
         {/* Кнопка выхода */}
         <div className="mt-4 text-center">
           <button onClick={handleLogout} className="bg-red-500 text-white px-4 py-2 rounded">
-            Выйти
+            Выйти из аккаунта
           </button>
         </div>
       </div>
