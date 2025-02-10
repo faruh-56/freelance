@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./FavouriteCards.css";
 import { Navbar } from "../../components/Navbar/Navbar";
 
-// Определяем интерфейс для описания структуры job
 interface Location {
   name: string;
 }
@@ -25,16 +24,14 @@ interface Job {
 }
 
 export const FavouriteCards = () => {
-  const [favorites, setFavorites] = useState<Job[]>([]); // Типизируем состояние
+  const [favorites, setFavorites] = useState<Job[]>([]); 
 
   useEffect(() => {
-    // Получаем избранные карточки из localStorage
     const storedFavorites: Job[] = JSON.parse(localStorage.getItem("favorites") || "[]");
     setFavorites(storedFavorites);
   }, []);
 
   const handleRemoveFromFavorites = (id: number) => {
-    // Удаляем карточку из избранного
     const updatedFavorites = favorites.filter((fav) => fav.id !== id);
     setFavorites(updatedFavorites);
     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));

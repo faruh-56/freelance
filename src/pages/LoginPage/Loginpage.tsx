@@ -1,5 +1,5 @@
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import "./LoginPage.css"
+import "./LoginPage.css";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Input } from "../../components/UI/Input/Input";
@@ -8,6 +8,7 @@ import { Button } from "../../components/UI/Button/Button";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { AuthWith } from "../../components/AuthWith/AuthWith";
+import { useState } from "react";
 
 interface ILoginForm {
   useremail: string;
@@ -27,6 +28,7 @@ const loginFormSchema = yup.object({
 
 export const LoginPage = () => {
   const navigate = useNavigate();
+  const [loginError, setLoginError] = useState<string | null>(null);
 
   const {
     control,
@@ -38,10 +40,8 @@ export const LoginPage = () => {
   });
 
   const onSubmit: SubmitHandler<ILoginForm> = (data) => {
-    
     const users = JSON.parse(localStorage.getItem("users") || "[]");
 
-    
     const foundUser = users.find(
       (user: { email: string; password: string; id: string }) =>
         user.email === data.useremail && user.password === data.userpassword
@@ -49,10 +49,11 @@ export const LoginPage = () => {
 
     if (foundUser) {
       localStorage.setItem("currentUserId", foundUser.id);
+      setLoginError(null);
       console.log("Успешный вход");
-      navigate("/main"); 
+      navigate("/main");
     } else {
-      console.log("Неверный логин или пароль");
+      setLoginError("Неверный логин или пароль");
     }
   };
 
@@ -88,6 +89,7 @@ export const LoginPage = () => {
               />
             )}
           />
+          {loginError && <p className="error-text">{loginError}</p>}
           <Button type="submit" text="Войти" />
         </form>
         <AuthWith />

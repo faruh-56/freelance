@@ -17,11 +17,9 @@ export const ProfilePage: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Получаем ID текущего пользователя
     const currentUserId = localStorage.getItem("currentUserId");
 
     if (!currentUserId) {
-      // Если нет текущего пользователя, перенаправляем на страницу входа
       navigate("/login");
       return;
     }
@@ -80,8 +78,6 @@ export const ProfilePage: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* Нижний блок */}
         <div className="mt-4">
           <ul className="flex space-x-4 border-b pb-2">
             <li className="text-blue-500 border-b-2 border-blue-500">Портфолио</li>
@@ -102,8 +98,6 @@ export const ProfilePage: React.FC = () => {
             </p>
           </div>
         </div>
-
-        {/* Кнопка выхода */}
         <div className="mt-4 text-center">
           <button onClick={handleLogout} className="bg-red-500 text-white px-4 py-2 rounded">
             Выйти из аккаунта

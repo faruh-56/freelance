@@ -1,39 +1,38 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useGetJobDetailsQuery } from "../../store/api/freelance";
-import "./CardsPage.css"
+import "./CardsPage.css";
 import { Navbar } from "../../components/Navbar/Navbar";
 
 export const CardsPage: React.FC = () => {
-    const { id } = useParams<{ id: string }>();
-    const { error, isLoading } = useGetJobDetailsQuery(id || '');
+  const { id } = useParams<{ id: string }>();
+  const { data: job, error, isLoading } = useGetJobDetailsQuery(id || "");
 
-    if (isLoading) return <p>Loading...</p>;
-    if (error) return <p>Error loading job details</p>;
+  if (isLoading) return <p>Загрузка...</p>;
+  if (error) return <p>Ошибка загрузки данных</p>;
+  if (!job) return <p>Данные не найдены</p>;
 
-    return (
-        <div>
-            <Navbar />
-            <div className="jobCard">
-                <h1 className="jobTitle">Intern, R&D Graduate Summer - Climate Science - FORCEE, Onsite</h1>
-                <p className="jobInfo"><strong>Company:</strong> Sandia National Laboratories</p>
-                <p className="jobInfo">
-                    <strong>Description:</strong> We are seeking motivated graduate students in CLIMATE SCIENCE...
-                </p>
-                <p className="jobInfo"><strong>Locations:</strong> Albuquerque, NM</p>
-                <p className="jobInfo"><strong>Levels:</strong> Internship</p>
-                <p className="jobInfo"><strong>Publication Date:</strong> 11/12/2024</p>
-                <p className="jobInfo"><strong>Job Type:</strong> external</p>
-                <p className="jobInfo">
-                    <strong>Apply Here:</strong>
-                    <a href="https://www.themuse.com/jobs/sandianationallaboratories/intern-rd-graduate-summer-climate-science-forcee-onsite" target="_blank">
-                        https://www.themuse.com/jobs/sandianationallaboratories/intern-rd-graduate-summer-climate-science-forcee-onsite
-                    </a>
-                </p>
-            </div>
-        </div>
-
-    );
+  return (
+    <div className="container">
+      <Navbar />
+      <div className="job-card">
+        <h1 className="job-title">{job.name}</h1>
+        <p className="job-info"><strong>Компания:</strong> {job.company.name}</p>
+        <p className="job-info"><strong>Локация:</strong> {job.locations.map((loc:  any) => loc.name).join(", ")}</p>
+        <p className="job-info"><strong>Уровень:</strong> {job.levels.map((level: any) => level.name).join(", ")}</p>
+        <p className="job-info"><strong>Тип работы:</strong> {job.job_type}</p>
+        <p className="job-info"><strong>Опубликовано:</strong> {new Date(job.publication_date).toLocaleDateString()}</p>
+        <p className="job-info"><strong>Описание:</strong> {job.contents}</p>
+        <p className="job-info">
+          <strong>Откликнуться:</strong>{" "}
+          <a href={job.refs.landing_page} target="_blank" rel="noopener noreferrer">
+            {job.refs.landing_page}
+          </a>
+        </p>
+      </div>
+    </div>
+  );
 };
+
 
 
